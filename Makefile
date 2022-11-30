@@ -45,10 +45,10 @@ all				:	${NAME}
 
 # ---- Variables Rules ---- #
 
-${NAME}			:	${OBJS} Makefile ${LIBMLX} ${LIBFT} ${addprefix ${DIR_HEAD}, ${HEAD}}
+${NAME}			:	${OBJS} Makefile ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_HEAD}, ${HEAD}}
 					${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft
 
-${LIBFT}		:
+${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
 					make ${LIBFT} -C ${DIR_LIBFT}
 
 # ---- Compiled Rules ---- #
@@ -56,7 +56,7 @@ ${LIBFT}		:
 ${OBJS}			:	| ${DIR_OBJS}
 
 ${DIR_OBJS}%.o	:	${DIR_SRCS}%.c Makefile ${addprefix ${DIR_HEAD}, ${HEAD}}
-					${CC} ${CFLAGS} -Imlx -I ${DIR_HEAD} -c $< -o $@
+					${CC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
 
 ${DIR_OBJS}		:
 					${MKDIR} ${DIR_OBJS}

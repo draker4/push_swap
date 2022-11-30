@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:40:36 by bperriol          #+#    #+#             */
-/*   Updated: 2022/11/14 14:40:05 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/11/30 20:07:17 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	static	ft_overflow(int sign)
+static int	ft_overflow(int sign)
 {
 	if (sign < 0)
 		return ((int)LONG_MIN);

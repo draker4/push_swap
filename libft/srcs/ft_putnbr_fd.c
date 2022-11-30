@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:31:12 by bperriol          #+#    #+#             */
-/*   Updated: 2022/11/23 16:59:31 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/11/30 21:23:00 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ void	ft_putnbr_base(unsigned long long nb, int *count, int maj)
 	else
 		ft_putchar("0123456789ABCDEF"[nb % 16]);
 }
-
