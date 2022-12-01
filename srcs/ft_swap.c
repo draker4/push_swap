@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:27 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 04:04:04 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/01 04:46:01 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_swap_a(t_stack **stack, int msg)
 {
 	int		tmp;
 
-	if (ft_stack_size(*stack) < 2)
+	if ((int)ft_stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->down->value;
@@ -29,7 +29,7 @@ void	ft_swap_b(t_stack **stack, int msg)
 {
 	int		tmp;
 
-	if (ft_stack_size(*stack) < 2)
+	if ((int)ft_stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->down->value;

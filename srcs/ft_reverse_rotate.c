@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 04:26:18 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 04:33:12 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/01 07:00:05 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_reverse_rotate_a(t_stack **stack, int msg)
 	t_stack	*current;
 	t_stack	*last;
 
-	if (!stack || !(*stack) || ft_stack_size(*stack) < 2)
+	if (!stack || !(*stack) || (int)ft_stack_size(*stack) < 2)
 		return ;
 	current = *stack;
 	while (current->down->down)
@@ -38,7 +38,7 @@ void	ft_reverse_rotate_b(t_stack **stack, int msg)
 	t_stack	*current;
 	t_stack	*last;
 
-	if (!stack || !(*stack) || ft_stack_size(*stack) < 2)
+	if (!stack || !(*stack) || (int)ft_stack_size(*stack) < 2)
 		return ;
 	current = *stack;
 	while (current->down->down)

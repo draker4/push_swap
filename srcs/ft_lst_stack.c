@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:10 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 03:50:11 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/01 05:54:04 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,16 @@ size_t	ft_stack_size(t_stack *stack)
 		stack = stack->down;
 	}
 	return (size);
+}
+
+t_stack	*ft_stack_last(t_stack *stack)
+{
+	t_stack	*last;
+
+	if (!stack)
+		return (NULL);
+	while (stack->down)
+		stack = stack->down;
+	last = stack;
+	return (last);
 }

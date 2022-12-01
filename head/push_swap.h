@@ -27,12 +27,13 @@ t_stack	*ft_new_el_stack(int value);
 void	ft_stack_back(t_stack **begin, t_stack *el);
 void	ft_stack_clear(t_stack **stack);
 size_t	ft_stack_size(t_stack *stack);
+t_stack	*ft_stack_last(t_stack *stack);
 
 //prototypes get_stack
 t_stack	*ft_get_stack(int argc, char **argv);
 
 //prototypes push_swap
-void	ft_push_swap(t_stack **stack_a);
+int		ft_push_swap(t_stack **stack_a);
 
 //prototypes operations
 void	ft_swap_a(t_stack **stack, int msg);
@@ -46,5 +47,9 @@ void	ft_rotate_both(t_stack **stack_a, t_stack **stack_b);
 void	ft_reverse_rotate_a(t_stack **stack, int msg);
 void	ft_reverse_rotate_b(t_stack **stack, int msg);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
+
+//prototypes stack order
+void	ft_stack_order(t_stack **stack_a);
+int		ft_get_max(t_stack *stack, int max);
 
 #endif
