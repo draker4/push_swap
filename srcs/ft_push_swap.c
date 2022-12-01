@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 03:06:04 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 03:22:00 by bperriol         ###   ########lyon.fr   */
+/*   Created: 2022/12/01 03:50:16 by bperriol          #+#    #+#             */
+/*   Updated: 2022/12/01 04:31:30 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,18 @@ static int	ft_is_sorted(t_stack *stack)
 	return (1);
 }
 
-void	ft_push_swap(t_stack *stack_a)
+void	ft_push_swap(t_stack **stack_a)
 {
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (!ft_is_sorted(stack_a))
+	if (!ft_is_sorted(*stack_a))
 		ft_printf("not sorted\n");
+	ft_printf("size = %d\n", ft_stack_size(*stack_a));
+
+	while (stack_b)
+	{
+		ft_printf("stack b = %d\n", stack_b->value);
+		stack_b = stack_b->down;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 02:08:57 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 03:24:04 by bperriol         ###   ########lyon.fr   */
+/*   Created: 2022/12/01 03:50:10 by bperriol          #+#    #+#             */
+/*   Updated: 2022/12/01 03:50:11 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ void	ft_stack_clear(t_stack **stack)
 		free(previous);
 	}
 	*stack = NULL;
+}
+
+size_t	ft_stack_size(t_stack *stack)
+{
+	size_t	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->down;
+	}
+	return (size);
 }

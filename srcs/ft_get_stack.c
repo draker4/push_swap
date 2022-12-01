@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 01:57:35 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 03:17:56 by bperriol         ###   ########lyon.fr   */
+/*   Created: 2022/12/01 03:50:02 by bperriol          #+#    #+#             */
+/*   Updated: 2022/12/01 03:50:04 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
