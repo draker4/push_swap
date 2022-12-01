@@ -24,7 +24,8 @@ DIR_HEAD	=	head/
 
 HEAD		=	push_swap.h
 
-SRCS		=	main.c
+SRCS		=	main.c 			ft_get_stack.c	\
+				ft_lst_stack.c	ft_push_swap.c
 
 OBJS		=	${SRCS:%.c=${DIR_OBJS}%.o}
 
