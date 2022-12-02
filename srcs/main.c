@@ -20,6 +20,15 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	ft_push_swap(&stack_a);
+
+	// t_stack	*current;
+	// current = stack_a;
+	// while (current)
+	// {
+	// 	ft_printf("stack_a = %d\n", current->value);
+	// 	current = current->down;
+	// }
+
 	free(stack_a);
 	return (0);
 }

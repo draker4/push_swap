@@ -49,7 +49,7 @@ void	ft_reverse_rotate_b(t_stack **stack, int msg);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 //prototypes stack order
-void	ft_stack_order(t_stack **stack_a);
+void	ft_stack_order(t_stack **stack_a, int max);
 int		ft_get_max(t_stack *stack, int max);
 int		ft_is_sorted(t_stack *stack, int order);
 

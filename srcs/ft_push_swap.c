@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:16 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 10:07:01 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/02 22:19:20 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_stack_three_el(t_stack **stack_a)
 
 static void	ft_stack_four_el(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_stack_order(stack_a);
+	ft_stack_order(stack_a, 0);
 	if (ft_is_sorted(*stack_a, 1))
 		return ;
 	ft_push_b(stack_a, stack_b);
@@ -49,11 +49,11 @@ static void	ft_stack_four_el(t_stack **stack_a, t_stack **stack_b)
 
 static void	ft_stack_five_el(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_stack_order(stack_a);
+	ft_stack_order(stack_a, 0);
 	if (ft_is_sorted(*stack_a, 1))
 		return ;
 	ft_push_b(stack_a, stack_b);
-	ft_stack_order(stack_a);
+	ft_stack_order(stack_a, 0);
 	ft_push_b(stack_a, stack_b);
 	ft_stack_three_el(stack_a);
 	ft_push_a(stack_a, stack_b);
