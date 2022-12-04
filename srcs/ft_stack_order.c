@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 06:28:06 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/02 22:11:40 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/04 20:39:35 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_get_max(t_stack *stack, int max)
 	return (index);
 }
 
-void	ft_stack_order(t_stack **stack_a, int max)
+void	ft_stack_order(t_stack **stack_a, int which, int max)
 {
 	int	rotation;
 
@@ -47,29 +47,67 @@ void	ft_stack_order(t_stack **stack_a, int max)
 	while (ft_get_max(*stack_a, max) != 0)
 	{
 		if (rotation)
-			ft_reverse_rotate_a(stack_a, 1);
+			ft_reverse_rotate(stack_a, which, 1);
 		else
-			ft_rotate_a(stack_a, 1);
+			ft_rotate(stack_a, which, 1);
 	}
 }
 
 int	ft_is_sorted(t_stack *stack, int order)
 {
 	int		previous_value;
+	int		index;
 	t_stack	*current;
 
 	if (!stack)
-		return (0);
+		return (-1);
 	current = stack->down;
 	previous_value = stack->value;
+	index = 0;
 	while (current)
 	{
 		if (order && current->value < previous_value)
-			return (0);
+			return (index);
 		else if (!order && current->value > previous_value)
-			return (0);
+			return (index);
 		previous_value = current->value;
 		current = current->down;
+		index++;
 	}
-	return (1);
+	return (-1);
+}
+
+int	ft_is_rotated(t_stack *stack, int order)
+{
+	int		previous_value;
+	int		i;
+	int		prev_i;
+	t_stack	*current;
+	t_stack	*last;
+
+	if (!stack)
+		return (-1);
+	current = stack;
+	last = ft_get_last_stack(stack);
+	previous_value = last->value;
+	prev_i = ft_stack_size(stack) - 1;
+	i = 0;
+	while (current)
+	{
+		//ft_printf("index = %d et current value = %d\n", i, current->value);
+		if (order && current->value < previous_value \
+		&& !(prev_i == ft_get_max(stack, 1) && i == ft_get_max(stack, 0)))
+		{
+			//ft_printf("current=%d\n", current->value);
+			return (i);
+		}
+		else if (!order && current->value > previous_value \
+		&& !(prev_i == ft_get_max(stack, 0) && i == ft_get_max(stack, 1)))
+			return (i);
+		previous_value = current->value;
+		current = current->down;
+		prev_i = i;
+		i++;
+	}
+	return (-1);
 }

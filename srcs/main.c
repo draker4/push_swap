@@ -21,13 +21,7 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_push_swap(&stack_a);
 
-	// t_stack	*current;
-	// current = stack_a;
-	// while (current)
-	// {
-	// 	ft_printf("stack_a = %d\n", current->value);
-	// 	current = current->down;
-	// }
+	//ft_print_stack(stack_a, 1);
 
 	free(stack_a);
 	return (0);
