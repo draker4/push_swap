@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:10 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/04 21:43:53 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/09 13:07:36 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_stack	*ft_new_el_stack(int value)
 		return (NULL);
 	el->value = value;
 	el->down = NULL;
-	el->nb_op = 0;
+	el->nb_op_a = 0;
+	el->nb_op_b = 0;
 	el->nb_order = 0;
 	el->seq = 0;
 	return (el);
@@ -82,16 +83,4 @@ t_stack	*ft_stack_last(t_stack *stack)
 		stack = stack->down;
 	last = stack;
 	return (last);
-}
-
-t_stack	*ft_get_last_stack(t_stack *stack)
-{
-	t_stack	*current;
-
-	if (!stack)
-		return (NULL);
-	current = stack;
-	while (current->down)
-		current = current->down;
-	return (current);
 }

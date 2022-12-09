@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:39:53 by bperriol          #+#    #+#             */
-/*   Updated: 2022/11/30 20:06:56 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2022/12/03 11:02:21 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

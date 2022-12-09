@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bperriol <bperriol@42.student.fr>          +#+  +:+       +#+        */
+/*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 10:40:11 by bperriol          #+#    #+#             */
-/*   Updated: 2022/11/30 21:24:20 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/11/23 19:30:04 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_buf_last_char(char *buf, int reading)
 
 char	*get_next_line(int fd)
 {
-	static char	buf[_SC_OPEN_MAX][BUFFER_SIZE + 1];
+	static char	buf[OPEN_MAX][BUFFER_SIZE + 1];
 	char		*str;
 	int			reading;
 
