@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:18:42 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 11:20:51 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 17:46:58 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	*ft_index_tab(t_stack *stack)
 	return (ft_sort_tab(tab, len));
 }
 
-static int	ft_index_pos(t_stack **stack_a)
+int	ft_index_pos(t_stack **stack_a)
 {
 	t_stack	*current;
 	int		*tab;
@@ -89,7 +89,7 @@ void	ft_stack_thousand(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	size_a = (int)ft_stack_size(*stack_a);
 	i = 0;
-	while (!ft_is_sorted(*stack_a, 1))
+	while (!ft_is_sorted(*stack_a, 1, 0))
 	{
 		j = 0;
 		while (j < size_a)

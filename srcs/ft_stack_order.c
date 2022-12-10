@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 06:28:06 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 10:51:51 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 15:46:27 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,30 @@ void	ft_stack_order(t_stack **stack_a, int which, int max)
 	}
 }
 
-int	ft_is_sorted(t_stack *stack, int order)
+int	ft_is_sorted(t_stack *stack, int order, int rotate)
 {
-	int		previous_value;
+	int		prev;
 	t_stack	*current;
+	int		index;
 
 	if (!stack)
 		return (1);
-	current = stack->down;
-	previous_value = stack->value;
+	current = stack;
+	if (rotate)
+		prev = ft_stack_last(stack)->value;
+	else
+		prev = stack->value;
+	index = 0;
 	while (current)
 	{
-		if (order && current->value < previous_value)
+		if (order && current->value <= prev && index != ft_get_max(stack, 0))
 			return (0);
-		else if (!order && current->value > previous_value)
+		else if (!order && current->value >= prev \
+		&& index != ft_get_max(stack, 0))
 			return (0);
-		previous_value = current->value;
+		prev = current->value;
 		current = current->down;
+		index++;
 	}
 	return (1);
 }

@@ -58,7 +58,7 @@ void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 //prototypes stack order
 void	ft_stack_order(t_stack **stack_a, int which, int max);
 int		ft_get_max(t_stack *stack, int max);
-int		ft_is_sorted(t_stack *stack, int order);
+int		ft_is_sorted(t_stack *stack, int order, int rotate);
 int		ft_abs(int nb);
 int		ft_top_value(t_stack *stack);
 
@@ -72,7 +72,7 @@ void	ft_find_sequence(t_stack **stack_a);
 void	ft_push_others(t_stack **stack_a, t_stack **stack_b);
 
 //prototype calculate nb op
-void	ft_calculate_op(t_stack *stack_a, t_stack **stack_b, int *min);
+void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min);
 
 //prototype rotation both stack knowing min operations to do
 void	ft_choose_rotation_min_op(t_stack **stack_a, t_stack **stack_b, \
@@ -81,6 +81,14 @@ void	ft_choose_rotation_min_op(t_stack **stack_a, t_stack **stack_b, \
 //prototypes stack thousand
 void	ft_stack_thousand(t_stack **stack_a, t_stack **stack_b);
 
-void	ft_print_stack(t_stack *stack, int who);
 
+
+
+void	ft_print_stack(t_stack *stack, int who);
+void	ft_stack_five_hundred(t_stack **stack_a, t_stack **stack_b);
+
+
+void				ft_push_back_order(t_stack **stack_a, t_stack **stack_b, int len_b);
+int	ft_index_pos(t_stack **stack_a);
+void			ft_stack_hundred2(t_stack **stack_a, t_stack **stack_b);
 #endif

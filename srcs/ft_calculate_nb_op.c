@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:18:42 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 17:12:37 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 11:55:10 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,25 @@ static int	ft_find_index(t_stack *stack_a, int value)
 	return ((int)ft_stack_size(stack_a));
 }
 
-void	ft_calculate_op(t_stack *stack_a, t_stack **stack_b, int *min)
+void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min)
 {
 	t_stack	*current;
 	int		index;
 	int		index_b;
-	int		len;
+	int		len_b;
+	int		len_a;
 
-	current = *stack_b;
+	current = stack_b;
 	index = 0;
-	len = (int)ft_stack_size(*stack_b);
-	*min = len + (int)ft_stack_size(stack_a);
+	len_b = (int)ft_stack_size(stack_b);
+	len_a = (int)ft_stack_size(stack_a);
+	*min = len_b + len_a;
 	while (current)
 	{
-		if (index <= len / 2)
+		if (index <= len_b / 2)
 			index_b = index;
 		else
-			index_b = -(len - index);
+			index_b = -(len_b - index);
 		current->nb_op_a = ft_find_index(stack_a, current->value);
 		current->nb_op_b = index_b;
 		if (ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b) < *min)
