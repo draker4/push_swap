@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:18:42 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 13:26:05 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/09 17:12:37 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,9 @@ void	ft_calculate_op(t_stack *stack_a, t_stack **stack_b, int *min)
 	t_stack	*current;
 	int		index;
 	int		index_b;
-	int		index_a;
 	int		len;
 
 	current = *stack_b;
-	index_a = 0;
 	index = 0;
 	len = (int)ft_stack_size(*stack_b);
 	*min = len + (int)ft_stack_size(stack_a);

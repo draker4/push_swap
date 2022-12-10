@@ -23,6 +23,7 @@ typedef struct s_stack
 	int				nb_op_a;
 	int				nb_op_b;
 	int				seq;
+	int				index_pos;
 	struct s_stack	*down;
 }	t_stack;
 
@@ -42,7 +43,7 @@ t_stack	*ft_get_stack(int argc, char **argv);
 t_stack	*ft_get_split(int argc, char **argv);
 
 //prototype push_swap
-int		ft_push_swap(t_stack **stack_a);
+void	ft_push_swap(t_stack **stack_a);
 
 //prototypes operations
 void	ft_swap(t_stack **stack, int which, int msg);
@@ -59,9 +60,10 @@ void	ft_stack_order(t_stack **stack_a, int which, int max);
 int		ft_get_max(t_stack *stack, int max);
 int		ft_is_sorted(t_stack *stack, int order);
 int		ft_abs(int nb);
+int		ft_top_value(t_stack *stack);
 
 //prototype stack hundred
-int		ft_stack_hundred(t_stack **stack_a, t_stack **stack_b);
+void	ft_stack_hundred(t_stack **stack_a, t_stack **stack_b);
 
 //prototype find sequence
 void	ft_find_sequence(t_stack **stack_a);
@@ -73,10 +75,11 @@ void	ft_push_others(t_stack **stack_a, t_stack **stack_b);
 void	ft_calculate_op(t_stack *stack_a, t_stack **stack_b, int *min);
 
 //prototype rotation both stack knowing min operations to do
-void	ft_rotation_both_min_op(t_stack **stack_a, t_stack **stack_b, \
+void	ft_choose_rotation_min_op(t_stack **stack_a, t_stack **stack_b, \
 		t_stack *current);
 
-
+//prototypes stack thousand
+void	ft_stack_thousand(t_stack **stack_a, t_stack **stack_b);
 
 void	ft_print_stack(t_stack *stack, int who);
 

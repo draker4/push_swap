@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:02 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 13:06:45 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/09 18:04:45 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack	*ft_get_stack(int argc, char **argv)
 	int		i;
 
 	if (argc < 2)
-		return (ft_msg_error(NULL, 1, NULL));
+		return (NULL);
 	stack = NULL;
 	i = 1;
 	while (i < argc)

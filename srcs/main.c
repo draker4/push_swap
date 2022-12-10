@@ -61,8 +61,8 @@ void	ft_print_stack(t_stack *stack, int who)
 	current = stack;
 	while (current)
 	{
-		ft_printf("stack %d = %d et seq = %d et nb opa = %d et nb opb = %d\n", \
-		who, current->value, current->seq, current->nb_op_a, current->nb_op_b);
+		ft_printf("stack %d = %d et index = %d\n", \
+		who, current->value, current->index_pos);
 		current = current->down;
 	}
 }
