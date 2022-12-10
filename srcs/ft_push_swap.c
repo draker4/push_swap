@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:16 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 17:35:35 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 19:01:19 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ void	ft_push_swap(t_stack **stack_a)
 		ft_stack_four_el(stack_a, &stack_b);
 	else if (size == 5)
 		ft_stack_five_el(stack_a, &stack_b);
-	// else if (size <= 200)
-	// 	return (ft_stack_hundred(stack_a, &stack_b));
 	else
-		return (ft_stack_hundred2(stack_a, &stack_b));
+		return (ft_stack_hundred(stack_a, &stack_b));
 }

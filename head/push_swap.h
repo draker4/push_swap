@@ -16,6 +16,8 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 
+# define CHUNK_SIZE 150
+
 typedef struct s_stack
 {
 	int				value;
@@ -65,30 +67,15 @@ int		ft_top_value(t_stack *stack);
 //prototype stack hundred
 void	ft_stack_hundred(t_stack **stack_a, t_stack **stack_b);
 
-//prototype find sequence
-void	ft_find_sequence(t_stack **stack_a);
-
-//prototype push other that are not seq = 1
-void	ft_push_others(t_stack **stack_a, t_stack **stack_b);
-
 //prototype calculate nb op
-void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min);
+void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, \
+		int *min, int len_b);
 
 //prototype rotation both stack knowing min operations to do
 void	ft_choose_rotation_min_op(t_stack **stack_a, t_stack **stack_b, \
 		t_stack *current);
 
-//prototypes stack thousand
-void	ft_stack_thousand(t_stack **stack_a, t_stack **stack_b);
+//prototype tab index
+int		ft_index_pos(t_stack **stack_a);
 
-
-
-
-void	ft_print_stack(t_stack *stack, int who);
-void	ft_stack_five_hundred(t_stack **stack_a, t_stack **stack_b);
-
-
-void				ft_push_back_order(t_stack **stack_a, t_stack **stack_b, int len_b);
-int	ft_index_pos(t_stack **stack_a);
-void			ft_stack_hundred2(t_stack **stack_a, t_stack **stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:18:42 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 11:55:10 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/10 19:27:29 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack *current, int index)
 {
 	int	len;
 
-	len = (int)ft_stack_size(stack_a);
+	len = index + 1;
 	if (current->value < value)
 	{
 		index = ft_get_max(stack_a, 1);
@@ -36,7 +36,7 @@ t_stack *current, int index)
 	}
 }
 
-static int	ft_find_index(t_stack *stack_a, int value)
+static int	ft_find_index(t_stack *stack_a, int value, int len_a)
 {
 	t_stack	*current;
 	int		index;
@@ -48,34 +48,31 @@ static int	ft_find_index(t_stack *stack_a, int value)
 		if (!index && current->value > value && \
 		(ft_stack_last(stack_a)->value < value))
 			return (0);
-		if (index == (int)ft_stack_size(stack_a) - 1)
+		if (index == len_a - 1)
 			return (ft_return_index(stack_a, value, current, index));
 		if (current->down && current->value < value && \
 		current->down->value > value)
 		{
-			if (index <= (int)ft_stack_size(stack_a) / 2)
+			if (index <= len_a / 2)
 				return (index + 1);
 			else
-				return (-((int)ft_stack_size(stack_a) - index - 1));
+				return (-(len_a - index - 1));
 		}
 		index++;
 		current = current->down;
 	}
-	return ((int)ft_stack_size(stack_a));
+	return (len_a);
 }
 
-void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min)
+void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min, int len_b)
 {
-	t_stack	*current;
-	int		index;
-	int		index_b;
-	int		len_b;
-	int		len_a;
+	t_stack			*current;
+	int				index;
+	int				index_b;
+	static int		len_a;
 
 	current = stack_b;
 	index = 0;
-	len_b = (int)ft_stack_size(stack_b);
-	len_a = (int)ft_stack_size(stack_a);
 	*min = len_b + len_a;
 	while (current)
 	{
@@ -83,11 +80,12 @@ void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min)
 			index_b = index;
 		else
 			index_b = -(len_b - index);
-		current->nb_op_a = ft_find_index(stack_a, current->value);
+		current->nb_op_a = ft_find_index(stack_a, current->value, len_a);
 		current->nb_op_b = index_b;
 		if (ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b) < *min)
 			*min = ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b);
 		index++;
 		current = current->down;
 	}
+	len_a++;
 }

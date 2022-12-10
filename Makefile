@@ -29,9 +29,8 @@ SRCS		=	main.c 					ft_get_stack.c			\
 				ft_swap.c				ft_push.c				\
 				ft_rotate.c				ft_reverse_rotate.c		\
 				ft_stack_order.c		ft_stack_hundred.c		\
-				ft_calculate_nb_op.c	ft_find_sequence.c		\
-				ft_push_not_seq.c		ft_rot_both_min_op.c	\
-				ft_stack_thousand.c		ft_stack_five_hundred.c	\
+				ft_calculate_nb_op.c	ft_rot_both_min_op.c	\
+				ft_tab_index.c
 
 OBJS		=	${SRCS:%.c=${DIR_OBJS}%.o}
 

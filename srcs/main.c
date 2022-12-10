@@ -46,23 +46,6 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	ft_push_swap(&stack_a);
-
-	//ft_print_stack(stack_a, 1);
-
 	ft_stack_clear(&stack_a);
 	return (0);
-}
-
-
-void	ft_print_stack(t_stack *stack, int who)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current)
-	{
-		ft_printf("stack %d = %d et index = %d et seq = %d\n", \
-		who, current->value, current->index_pos, current->seq);
-		current = current->down;
-	}
 }
