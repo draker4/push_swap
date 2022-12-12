@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 03:50:27 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/12 11:43:42 by bperriol         ###   ########lyon.fr   */
+/*   Created: 2022/12/12 12:46:15 by bperriol          #+#    #+#             */
+/*   Updated: 2022/12/12 12:46:37 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../head/push_swap.h"
 
-void	ft_swap(t_stack **stack, int which, int msg)
+void	ft_free_split(char **split)
 {
-	int		tmp;
+	int	i;
 
-	if ((int)ft_stack_size(*stack) < 2)
-		return ;
-	tmp = (*stack)->value;
-	(*stack)->value = (*stack)->down->value;
-	(*stack)->down->value = tmp;
-	if (msg && which == 1)
-		ft_printf("sa\n");
-	else if (msg && which == 2)
-		ft_printf("sb\n");
+	i = 0;
+	if (*split)
+	{
+		while (split[i])
+			free(split[i++]);
+	}
+	free(split);
 }
 
-void	ft_swap_both(t_stack **stack_a, t_stack **stack_b, int msg)
+t_stack	*ft_msg_error(t_stack **stack, int msg, char **split)
 {
-	ft_swap(stack_a, 1, 0);
-	ft_swap(stack_b, 2, 0);
 	if (msg)
-		ft_printf("ss\n");
+		write(2, "Error\n", 6);
+	ft_stack_clear(stack);
+	if (split)
+		ft_free_split(split);
+	return (NULL);
 }

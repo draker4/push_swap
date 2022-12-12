@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:27:51 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 19:25:01 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:58:46 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack **stack_b, t_stack *current)
 	{
 		while (current->nb_op_a++)
 		{
-			ft_reverse_rotate_both(stack_a, stack_b);
+			ft_reverse_rotate_both(stack_a, stack_b, 1);
 			current->nb_op_b++;
 		}
 		while (current->nb_op_b++)
@@ -48,7 +48,7 @@ t_stack **stack_b, t_stack *current)
 	{
 		while (current->nb_op_b++)
 		{
-			ft_reverse_rotate_both(stack_a, stack_b);
+			ft_reverse_rotate_both(stack_a, stack_b, 1);
 			current->nb_op_a++;
 		}
 		while (current->nb_op_a++)
@@ -63,7 +63,7 @@ t_stack *current)
 	{
 		while (current->nb_op_b--)
 		{
-			ft_rotate_both(stack_a, stack_b);
+			ft_rotate_both(stack_a, stack_b, 1);
 			current->nb_op_a--;
 		}
 		while (current->nb_op_a--)
@@ -73,7 +73,7 @@ t_stack *current)
 	{
 		while (current->nb_op_a--)
 		{
-			ft_rotate_both(stack_a, stack_b);
+			ft_rotate_both(stack_a, stack_b, 1);
 			current->nb_op_b--;
 		}
 		while (current->nb_op_b--)

@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:16 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 19:01:19 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:44:52 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static void	ft_stack_four_el(t_stack **stack_a, t_stack **stack_b)
 	ft_stack_order(stack_a, 1, 0);
 	if (ft_is_sorted(*stack_a, 1, 0))
 		return ;
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 1);
 	ft_stack_three_el(stack_a);
-	ft_push_a(stack_a, stack_b);
+	ft_push_a(stack_a, stack_b, 1);
 }
 
 static void	ft_stack_five_el(t_stack **stack_a, t_stack **stack_b)
@@ -52,12 +52,12 @@ static void	ft_stack_five_el(t_stack **stack_a, t_stack **stack_b)
 	ft_stack_order(stack_a, 1, 0);
 	if (ft_is_sorted(*stack_a, 1, 0))
 		return ;
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 1);
 	ft_stack_order(stack_a, 1, 0);
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 1);
 	ft_stack_three_el(stack_a);
-	ft_push_a(stack_a, stack_b);
-	ft_push_a(stack_a, stack_b);
+	ft_push_a(stack_a, stack_b, 1);
+	ft_push_a(stack_a, stack_b, 1);
 }
 
 void	ft_push_swap(t_stack **stack_a)

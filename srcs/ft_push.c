@@ -6,13 +6,13 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:21 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/01 04:10:08 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:42:53 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../head/push_swap.h"
 
-void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
+void	ft_push_a(t_stack **stack_a, t_stack **stack_b, int msg)
 {
 	t_stack	*tmp;
 
@@ -22,10 +22,11 @@ void	ft_push_a(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = (*stack_b)->down;
 	tmp->down = *stack_a;
 	*stack_a = tmp;
-	ft_printf("pa\n");
+	if (msg)
+		ft_printf("pa\n");
 }
 
-void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b, int msg)
 {
 	t_stack	*tmp;
 
@@ -35,5 +36,6 @@ void	ft_push_b(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = (*stack_a)->down;
 	tmp->down = *stack_b;
 	*stack_b = tmp;
-	ft_printf("pb\n");
+	if (msg)
+		ft_printf("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 09:16:59 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 19:21:57 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 14:20:47 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_push_min_op(t_stack **stack_a, t_stack **stack_b, int min)
 		if (ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b) == min)
 		{
 			ft_choose_rotation_min_op(stack_a, stack_b, current);
-			ft_push_a(stack_a, stack_b);
+			ft_push_a(stack_a, stack_b, 1);
 			return ;
 		}
 		current = current->down;
@@ -46,7 +46,7 @@ static void	ft_push_chunk(t_stack **stack_a, t_stack **stack_b)
 		{
 			top_value = (*stack_a)->index_pos;
 			if (top_value >= chunk_min && top_value < chunk_min + CHUNK_SIZE)
-				ft_push_b(stack_a, stack_b);
+				ft_push_b(stack_a, stack_b, 1);
 			else
 				ft_rotate(stack_a, 1, 1);
 			i++;

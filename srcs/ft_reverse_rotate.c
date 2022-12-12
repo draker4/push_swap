@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 04:26:18 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 12:58:49 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:43:10 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	ft_reverse_rotate(t_stack **stack, int which, int msg)
 		ft_printf("rrb\n");
 }
 
-void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
+void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b, int msg)
 {
 	ft_reverse_rotate(stack_a, 1, 0);
 	ft_reverse_rotate(stack_b, 2, 0);
-	ft_printf("rrr\n");
+	if (msg)
+		ft_printf("rrr\n");
 }

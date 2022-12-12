@@ -12,29 +12,6 @@
 
 #include "../head/push_swap.h"
 
-void	ft_free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	if (*split)
-	{
-		while (split[i])
-			free(split[i++]);
-	}
-	free(split);
-}
-
-t_stack	*ft_msg_error(t_stack **stack, int msg, char **split)
-{
-	if (msg)
-		write(2, "Error\n", 6);
-	ft_stack_clear(stack);
-	if (split)
-		ft_free_split(split);
-	return (NULL);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;

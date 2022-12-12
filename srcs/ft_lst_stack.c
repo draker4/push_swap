@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:10 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 19:11:14 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:27:25 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_stack	*ft_new_el_stack(int value)
 	el->down = NULL;
 	el->nb_op_a = 0;
 	el->nb_op_b = 0;
-	el->nb_order = 0;
-	el->seq = 0;
 	el->index_pos = 0;
 	return (el);
 }

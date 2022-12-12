@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 03:50:02 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/09 18:04:45 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 16:34:18 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_str_is_digit(char *str)
 	int	i;
 
 	i = 0;
+	while (str[i] == ' ')
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str[i])
@@ -39,6 +41,8 @@ static int	ft_is_int(char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
+	while (str[i] == ' ')
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
