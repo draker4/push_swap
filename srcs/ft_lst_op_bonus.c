@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:21:49 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/12 15:28:32 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 15:13:53 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ t_operation	*ft_new_op(char	*str)
 	if (!el)
 		return (NULL);
 	el->op = str;
-	el->error = 0;
 	el->next = NULL;
 	return (el);
 }
 
-int	ft_op_back(t_operation **begin, t_operation *el)
+void	ft_op_back(t_operation **begin, t_operation *el)
 {
 	t_operation	*current;
 
@@ -38,7 +37,6 @@ int	ft_op_back(t_operation **begin, t_operation *el)
 	}
 	else if (begin)
 		*begin = el;
-	return (1);
 }
 
 void	ft_op_clear(t_operation **op)

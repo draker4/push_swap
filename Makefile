@@ -20,8 +20,6 @@ DIR_LIBFT	=	libft/
 
 DIR_HEAD	=	head/
 
-#DIR_HEAD	=	head/
-
 # ---- Files ---- #
 
 HEAD		=	push_swap.h
@@ -65,10 +63,10 @@ bonus			:	${NAME_BONUS}
 
 # ---- Variables Rules ---- #
 
-${NAME}			:	${OBJS} Makefile ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_HEAD}, ${HEAD}}
+${NAME}			:	${OBJS} Makefile ${addprefix ${DIR_LIBFT}, ${LIBFT}}
 					${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft
 
-${NAME_BONUS}	:	${OBJS_BONUS} Makefile ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_HEAD}, ${HEAD_BONUS}} ${addprefix ${DIR_HEAD}, ${HEAD}}
+${NAME_BONUS}	:	${OBJS_BONUS} Makefile ${addprefix ${DIR_LIBFT}, ${LIBFT}}
 					${CC} ${CFLAGS} -o ${NAME_BONUS} ${OBJS_BONUS} -L${DIR_LIBFT} -lft
 
 ${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
@@ -76,15 +74,13 @@ ${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
 
 # ---- Compiled Rules ---- #
 
-${OBJS}			:	${addprefix ${DIR_HEAD}, ${HEAD}} | ${DIR_OBJS}
-
-${OBJS_BONUS}	:	${addprefix ${DIR_HEAD}, ${HEAD_BONUS}} | ${DIR_OBJS}
-
-${DIR_OBJS}%.o	:	${DIR_SRCS}%.c Makefile
-					${CC} ${CFLAGS} -I ${DIR_HEAD} -c $< -o $@
+${DIR_OBJS}%.o	:	${DIR_SRCS}%.c Makefile | ${DIR_OBJS}
+					${CC} ${CFLAGS} -MMD -I ${DIR_HEAD} -c $< -o $@
 
 ${DIR_OBJS}		:
 					${MKDIR} ${DIR_OBJS}
+
+-include ${DIR_OBJS}/*.d
 
 # ---- Usual Commands ---- #
 					

@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:32:08 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/12 15:40:06 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 15:17:41 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,22 @@ int	ft_is_not_op(char *str)
 	&& ft_strncmp(str, "rrr\n\0", 5))
 		return (0);
 	return (1);
+}
+
+t_operation	*ft_not_any_op(t_operation *op)
+{
+	t_operation	*new;
+	char		*str;
+
+	str = ft_strdup("null");
+	if (!str)
+		return (NULL);
+	new = ft_new_op(str);
+	if (!new)
+	{
+		free(str);
+		return (NULL);
+	}
+	ft_op_back(&op, new);
+	return (op);
 }

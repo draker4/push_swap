@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:16:55 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/12 15:35:12 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 15:17:53 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@ static t_operation	*ft_read_operations(void)
 	t_operation	*op;
 	t_operation	*new;
 	char		*line;
-	int			new_line;
 
 	op = NULL;
-	new_line = 0;
 	line = get_next_line(0);
-	if (!line || !ft_is_not_op(line))
+	if ((!line && read(0, line, 1) != 0) || !ft_is_not_op(line))
 		return (ft_return_free(&op, 1));
+	else if (!line)
+		return (ft_not_any_op(op));
 	while (line)
 	{
 		new = ft_new_op(line);
-		if (!new || !ft_op_back(&op, new))
+		if (!new)
 			return (ft_return_free(&op, 0));
+		ft_op_back(&op, new);
 		line = get_next_line(0);
 		if ((!line && read(0, line, 1) != 0) || !ft_is_not_op(line))
 			return (ft_return_free(&op, 1));
@@ -62,8 +63,6 @@ t_operation *op)
 		ft_reverse_rotate(stack_b, 1, 0);
 	else if (!ft_strncmp(op->op, "rrr\n", ft_strlen("rrr\n")))
 		ft_reverse_rotate_both(stack_a, stack_b, 0);
-	else
-		op->error = 1;
 }
 
 static void	ft_checker(t_stack **stack_a, t_operation *op)
