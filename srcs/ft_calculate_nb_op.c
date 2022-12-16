@@ -6,7 +6,7 @@
 /*   By: bperriol <bperriol@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:18:42 by bperriol          #+#    #+#             */
-/*   Updated: 2022/12/10 19:27:29 by bperriol         ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 10:34:23 by bperriol         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,33 @@ static int	ft_find_index(t_stack *stack_a, int value, int len_a)
 	return (len_a);
 }
 
+static int	ft_total_op(int op_a, int op_b)
+{
+	if (op_a * op_b > 0)
+	{
+		if (op_a > 0)
+		{
+			if (op_a > op_b)
+				return (ft_abs(op_a));
+			else
+				return (ft_abs(op_b));
+		}
+		else
+		{
+			if (op_a < op_b)
+				return (ft_abs(op_a));
+			else
+				return (ft_abs(op_b));
+		}
+	}
+	else
+		return (ft_abs(op_a) + ft_abs(op_b));
+}
+
 void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min, int len_b)
 {
 	t_stack			*current;
 	int				index;
-	int				index_b;
 	static int		len_a;
 
 	current = stack_b;
@@ -77,13 +99,16 @@ void	ft_calculate_op(t_stack *stack_a, t_stack *stack_b, int *min, int len_b)
 	while (current)
 	{
 		if (index <= len_b / 2)
-			index_b = index;
+			current->nb_op_b = index;
 		else
-			index_b = -(len_b - index);
-		current->nb_op_a = ft_find_index(stack_a, current->value, len_a);
-		current->nb_op_b = index_b;
-		if (ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b) < *min)
-			*min = ft_abs(current->nb_op_a) + ft_abs(current->nb_op_b);
+			current->nb_op_b = -(len_b - index);
+		if (ft_abs(current->nb_op_b) > *min)
+			current->nb_op_a = len_b + len_a;
+		else
+			current->nb_op_a = ft_find_index(stack_a, current->value, len_a);
+		current->nb_op = ft_total_op(current->nb_op_a, current->nb_op_b);
+		if (current->nb_op < *min)
+			*min = current->nb_op;
 		index++;
 		current = current->down;
 	}

@@ -16,13 +16,14 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 
-# define CHUNK_SIZE 150
+# define CHUNK_SIZE 100
 
 typedef struct s_stack
 {
 	int				value;
 	int				nb_op_a;
 	int				nb_op_b;
+	int				nb_op;
 	int				index_pos;
 	struct s_stack	*down;
 }	t_stack;
